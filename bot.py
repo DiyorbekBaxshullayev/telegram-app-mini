@@ -1,12 +1,16 @@
-from telegram import Update, WebAppInfo, KeyboardButton, ReplyKeyboardMarkup
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, WebAppInfo
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
+# start komandasi handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [KeyboardButton("🚗 Mashinalar", web_app=WebAppInfo(url="https://telegram-app-mini.vercel.app/"))]
+        [InlineKeyboardButton("Rent a Car 🚗", web_app=WebAppInfo(url="https://telegram-app-mini.vercel.app/"))]
     ]
-    await update.message.reply_text("RentCar'ga xush kelibsiz!", reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True))
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-app = Application.builder().token("").build()
+    await update.message.reply_text("Ijaraga olish uchun tugmani bosing 👇", reply_markup=reply_markup)
+
+app = ApplicationBuilder().token("").build()
 app.add_handler(CommandHandler("start", start))
+
 app.run_polling()
