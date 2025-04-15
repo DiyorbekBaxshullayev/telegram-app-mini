@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-jarj^@$xea-t3(yh*m*vzk2#vkrehic7)1f=eptdf0p=^3i6@1
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['DiyorbekBaxshullayev.pythonanywhere.com']
 
 
 # Application definition
