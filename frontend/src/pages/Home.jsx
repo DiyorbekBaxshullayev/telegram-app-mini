@@ -62,8 +62,10 @@
 // export default Home;
 
 
+// Home.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CarCard from "../components/CarCard";
 
 const Home = () => {
   const [cars, setCars] = useState([]);
@@ -72,7 +74,7 @@ const Home = () => {
     const fetchCars = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/cars/`);
-        setCars(response.data); // backend'dan kelgan malumotni state'ga saqlaymiz
+        setCars(response.data);
       } catch (error) {
         console.error("Xatolik yuz berdi:", error);
       }
@@ -82,15 +84,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Mavjud mashinalar</h1>
-      <ul>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {cars.map((car) => (
-          <li key={car.id}>{car.name} - ${car.price}</li>
+          <CarCard key={car.id} car={car} onClick={() => console.log("Batafsil: ", car.name)} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 export default Home;
+
