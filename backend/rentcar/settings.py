@@ -27,11 +27,13 @@ SECRET_KEY = 'django-insecure-jarj^@$xea-t3(yh*m*vzk2#vkrehic7)1f=eptdf0p=^3i6@1
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 
-# ALLOWED_HOSTS = ['DiyorbekBaxshullayev.pythonanywhere.com']
+ALLOWED_HOSTS = ['DiyorbekBaxshullayev.pythonanywhere.com']
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
-
+CORS_ALLOWED_ORIGINS = [
+    "https://telegram-app-mini.vercel.app/",
+]
 
 
 # Application definition
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'rentcar.urls'

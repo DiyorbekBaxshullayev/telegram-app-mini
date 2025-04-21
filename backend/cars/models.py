@@ -16,15 +16,6 @@ class Car(models.Model):
         return self.name
 
 
-# class Car(models.Model):
-#     title = models.CharField(max_length=100)
-#     image = models.ImageField(upload_to='cars/')
-#     # boshqa field'lar...
-
-#     def __str__(self):
-#         return self.title
-
-
 
 class Order(models.Model):
     STATUS_CHOICES = [
