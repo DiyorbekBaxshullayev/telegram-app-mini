@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['DiyorbekBaxshullayev.pythonanywhere.com']
 # ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
-    "https://telegram-app-mini.vercel.app/",
+    "https://telegram-app-mini.vercel.app",
 ]
 
 
