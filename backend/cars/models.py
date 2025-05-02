@@ -7,7 +7,7 @@ class Car(models.Model):
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     year = models.IntegerField()
-    daily_price = models.DecimalField(max_digits=10, decimal_places=0)
+    daily_price = models.IntegerField()  # DecimalField o'rniga IntegerField
     description = models.TextField()
     image = models.ImageField(upload_to='car_images/')
     is_active = models.BooleanField(default=True)
