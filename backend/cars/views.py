@@ -1,13 +1,16 @@
 from django.shortcuts import render
+
+# Create your views here.
 from rest_framework import generics
 from .models import Car, Order
 from .serializers import CarSerializer, OrderSerializer
+
 from django.http import JsonResponse
 
-# Mashinalar ro'yxatini olish
 def car_list(request):
     cars = Car.objects.all().values()
     return JsonResponse(list(cars), safe=False)
+
 
 class CarListView(generics.ListAPIView):
     queryset = Car.objects.filter(is_active=True)
