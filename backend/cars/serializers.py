@@ -1,12 +1,13 @@
+# cars/serializers.py
 from rest_framework import serializers
 from .models import Car, Order
 
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields = '__all__'
+        fields = ['id', 'name', 'brand', 'year', 'daily_price', 'is_active']  # Kerakli maydonlar
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = ['id', 'name', 'phone', 'passport', 'address', 'status', 'car']  # Buyurtma maydonlari
