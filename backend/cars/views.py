@@ -1,17 +1,9 @@
-from django.shortcuts import render
-
-# Create your views here.
+# views.py
 from rest_framework import generics
 from .models import Car, Order
 from .serializers import CarSerializer, OrderSerializer
 
-from django.http import JsonResponse
-
-def car_list(request):
-    cars = Car.objects.all().values()
-    return JsonResponse(list(cars), safe=False)
-
-
+# Boshqa mavjud kodlar
 class CarListView(generics.ListAPIView):
     queryset = Car.objects.filter(is_active=True)
     serializer_class = CarSerializer
@@ -22,4 +14,9 @@ class CarDetailView(generics.RetrieveAPIView):
 
 class OrderCreateView(generics.CreateAPIView):
     queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+# Yangi view qo'shish
+class OrderListView(generics.ListAPIView):
+    queryset = Order.objects.all()  # Barcha buyurtmalarni olish
     serializer_class = OrderSerializer
