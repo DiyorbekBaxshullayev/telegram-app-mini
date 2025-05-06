@@ -16,7 +16,8 @@ class OrderCreateView(generics.CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
-# Yangi view qo'shish
+# views.py
 class OrderListView(generics.ListAPIView):
     queryset = Order.objects.all()  # Barcha buyurtmalarni olish
     serializer_class = OrderSerializer
+
