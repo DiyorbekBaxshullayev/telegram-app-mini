@@ -18,23 +18,7 @@ Foydalanilgan texnologiyalar:
 - Tailwind CSS
 
 
-<p float="left">
-  <img src="./assets/ilova1.jpg" width="48%" style="margin-right: 4%;" />
-  <img src="./assets/ilova2.jpg" width="48%" />
-</p>
-
-<p float="left">
-  <img src="./assets/ilova3.jpg" width="48%" style="margin-right: 4%;" />
-  <img src="./assets/ilova4.jpg" width="48%" />
-</p>
-
-<p float="left">
-  <img src="./assets/ilova5.jpg" width="48%" style="margin-right: 4%;" />
-  <img src="./assets/ilova6.jpg" width="48%" />
-</p>
-
-<p float="left">
-  <img src="./assets/ilova7.jpg" width="48%" style="margin-right: 4%;" />
-  <img src="./assets/ilova8.jpg" width="48%" />
-</p>
-
+![Banner](./assets/ilova1.jpg), ![Banner](./assets/ilova2.jpg)
+![Banner](./assets/ilova3.jpg), ![Banner](./assets/ilova4.jpg)
+![Banner](./assets/ilova5.jpg), ![Banner](./assets/ilova6.jpg)
+![Banner](./assets/ilova7.jpg), ![Banner](./assets/ilova8.jpg)
