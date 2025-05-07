@@ -12,6 +12,6 @@ class CarAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'car', 'phone', 'status', 'created_at')
+    list_display = ('name', 'passport', 'car', 'phone', 'status', 'created_at')
     list_filter = ('status', 'created_at')
     search_fields = ('name', 'phone', 'passport')
