@@ -1,16 +1,15 @@
-from django.shortcuts import render
+# cars/views.py
 
-# Create your views here.
+from django.shortcuts import render
 from rest_framework import generics
 from .models import Car, Order
 from .serializers import CarSerializer, OrderSerializer
-from .utils import send_telegram_message
+from .utils import send_telegram_message  # ← MUHIM
 from django.http import JsonResponse
 
 def car_list(request):
     cars = Car.objects.all().values()
     return JsonResponse(list(cars), safe=False)
-
 
 class CarListView(generics.ListAPIView):
     queryset = Car.objects.filter(is_active=True)
@@ -35,8 +34,6 @@ class OrderCreateView(generics.CreateAPIView):
                 f"🚘 Mashina: {car_name}\n"
                 f"📅 Sana: {order.created_at.strftime('%Y-%m-%d %H:%M')}"
             )
-            print("Xabar yuborilmoqda: ", message)  # Xabarni konsolda tekshirib ko'rish
-            send_telegram_message(message)
+            send_telegram_message(message)  # ← IKINCHI BOTGA YUBORADI
         except Exception as e:
-            print("Xatolik yuz berdi:", e)  # Xatolikni konsolga chiqarish
-
+            print("❌ Xatolik yuz berdi:", e)

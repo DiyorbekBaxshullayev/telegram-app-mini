@@ -1,16 +1,17 @@
-# utils.py
+# cars/utils.py
+
 import os
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv()  # .env faylni yuklaydi
 
 def send_telegram_message(message: str):
     BOT_TOKEN = os.getenv('BOT_TOKEN')
     CHAT_ID = os.getenv('CHAT_ID')
 
     if not BOT_TOKEN or not CHAT_ID:
-        print("Bot token yoki chat ID topilmadi!")
+        print("❌ BOT_TOKEN yoki CHAT_ID topilmadi.")
         return
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -22,10 +23,7 @@ def send_telegram_message(message: str):
 
     try:
         response = requests.post(url, data=payload)
-        response.raise_for_status()  # Xatolik yuzaga kelsa, bu usul xatolikni ko‘rsatadi
-        if response.status_code == 200:
-            print("Xabar muvaffaqiyatli yuborildi.")
-        else:
-            print(f"Telegramga yuborishda muammo yuz berdi: {response.text}")
+        response.raise_for_status()
+        print("✅ Xabar muvaffaqiyatli yuborildi.")
     except requests.exceptions.RequestException as e:
-        print("Telegramga yuborishda xatolik:", e)
+        print("❌ Telegramga yuborishda xatolik:", e)
