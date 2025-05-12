@@ -34,4 +34,8 @@ class OrderCreateView(generics.CreateAPIView):
             f"🚘 Mashina: {car_name}\n"
             f"📅 Sana: {order.created_at.strftime('%Y-%m-%d %H:%M')}"
         )
-        send_telegram_message(message)
+        print("Xabar yuborilmoqda: ", message)  # Xabarni konsolda tekshirib ko'rish
+            send_telegram_message(message)
+        except Exception as e:
+            print("Xatolik yuz berdi:", e)  # Xatolikni konsolga chiqarish
+            return JsonResponse({'error': str(e)}, status=400)
