@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Car, Order
 from .serializers import CarSerializer, OrderSerializer
-
+from .utils import send_telegram_message
 from django.http import JsonResponse
 
 def car_list(request):
@@ -23,3 +23,15 @@ class CarDetailView(generics.RetrieveAPIView):
 class OrderCreateView(generics.CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+    def perform_create(self, serializer):
+        order = serializer.save()
+        car_name = order.car.name
+        message = (
+            f"🚗 <b>Yangi buyurtma!</b>\n\n"
+            f"👤 Ismi: {order.full_name}\n"
+            f"📞 Telefon: {order.phone_number}\n"
+            f"🚘 Mashina: {car_name}\n"
+            f"📅 Sana: {order.created_at.strftime('%Y-%m-%d %H:%M')}"
+        )
+        send_telegram_message(message)
