@@ -16,8 +16,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_TOKEN = os.getenv('6176561737:AAGz9_Gp4CiAlCpTW0PQuD6lqFdQvkEZFMc')
-CHAT_ID = os.getenv('2007510369')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
