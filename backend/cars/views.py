@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Car, Order
 from .serializers import CarSerializer, OrderSerializer
-
+from .utils import send_telegram_message
 from django.http import JsonResponse
 
 def car_list(request):
